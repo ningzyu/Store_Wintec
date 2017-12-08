@@ -3,7 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.nzy.zkyt.store_wintec.ui.fragment.HomeFragment">
-
+    <!--<android.support.v4.widget.SwipeRefreshLayout-->
+        <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+        <!--xmlns:tools="http://schemas.android.com/tools"-->
+        <!--android:id="@+id/swipe"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_home"
@@ -16,6 +21,7 @@
         android:layout_height="?attr/actionBarSize"
         >
         <LinearLayout
+
             android:id="@+id/home_search"
             android:orientation="horizontal"
             android:layout_margin="9dp"
@@ -43,4 +49,5 @@
         </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
+    <!--</android.support.v4.widget.SwipeRefreshLayout>-->
 </RelativeLayout>

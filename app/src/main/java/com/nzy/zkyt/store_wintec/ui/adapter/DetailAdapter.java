@@ -16,7 +16,6 @@ import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.ui.data.MyBanner;
 import com.youth.banner.Banner;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,7 +32,8 @@ public class DetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     //APP
     public static final int ITEM_APK = 2;
     private Context context;
-    private List datas = new ArrayList();
+    private List datas;
+
     public DetailAdapter(Context context,List datas) {
         this.context=context;
         this.datas=datas;
@@ -48,6 +48,7 @@ public class DetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         {
             super(itemView);
             banner = (Banner) itemView.findViewById(R.id.main_banner);
+
         }
     }
     public class ItemViewHolder extends RecyclerView.ViewHolder
@@ -59,7 +60,9 @@ public class DetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             super(itemView);
             iv= (ImageView) itemView.findViewById(R.id.iv_home_item);
             tv= (TextView) itemView.findViewById(R.id.tv_home_item);
+
         }
+
     }
     public class TypesViewHolder extends RecyclerView.ViewHolder
     {
@@ -99,6 +102,7 @@ public class DetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                     .load(homeItem.getShowImg())
                     .into(((ItemViewHolder) holder).iv);
             ((ItemViewHolder) holder).tv.setText(homeItem.getName());
+
         }else if (holder instanceof TypesViewHolder){
             HomeItem homeItem= (HomeItem) datas.get(position);
             Glide.with(context)
@@ -143,4 +147,6 @@ public class DetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             }
         });
     }
+
+
 }

@@ -3,7 +3,7 @@ package com.nzy.zkyt.store_wintec.ui.data;
 import android.util.Log;
 import android.view.ViewGroup;
 
-import com.nzy.zkyt.store_wintec.GlideImageLoader;
+import com.nzy.zkyt.store_wintec.util.GlideImageLoader;
 import com.nzy.zkyt.store_wintec.base.AppConst;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;

@@ -1,7 +1,7 @@
 package com.nzy.zkyt.store_wintec.ui.fragment;
 
 
-import com.nzy.zkyt.store_wintec.MainActivity;
+import com.nzy.zkyt.store_wintec.ui.MainActivity;
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.ui.base.BaseFragment;
 import com.nzy.zkyt.store_wintec.ui.presenter.FgClassifyPresenter;

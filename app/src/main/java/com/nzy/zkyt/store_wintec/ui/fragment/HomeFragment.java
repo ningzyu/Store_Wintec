@@ -1,11 +1,12 @@
 package com.nzy.zkyt.store_wintec.ui.fragment;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.nzy.zkyt.store_wintec.MainActivity;
+import com.nzy.zkyt.store_wintec.ui.MainActivity;
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.ui.base.BaseFragment;
 import com.nzy.zkyt.store_wintec.ui.presenter.FgHomePresenter;
@@ -20,6 +21,8 @@ public class HomeFragment extends BaseFragment<FgHomeView, FgHomePresenter> impl
     Toolbar toolbar;
     @BindView(R.id.home_search)
     LinearLayout search;
+//    @BindView(R.id.swipe)
+//    SwipeRefreshLayout swipe;
     @Override
     protected FgHomePresenter createPresenter() {
         return new FgHomePresenter((MainActivity)getActivity());
@@ -53,12 +56,21 @@ public class HomeFragment extends BaseFragment<FgHomeView, FgHomePresenter> impl
     }
 
     @Override
-    public Toolbar getBar() {
-        return toolbar;
-    }
-
-    @Override
     public LinearLayout getSearch() {
         return search;
     }
+    @Override
+    public void setSearch(float Alpha) {
+        //搜索框初始透明度
+        float initalpha =130;
+        float alpha = (255 * Alpha);
+        float alphaSearch = ((255-initalpha)* Alpha)+initalpha;
+        toolbar.setBackgroundColor(Color.argb((int) alpha, 204, 204, 204));
+        search.getBackground().setAlpha((int) alphaSearch);
+    }
+
+
+
+
+
 }

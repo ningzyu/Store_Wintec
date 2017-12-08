@@ -48,9 +48,9 @@ public class BottomNavigation {
 //                .setMode(MODE_SHIFTING).setBackgroundStyle(BACKGROUND_STYLE_STATIC);
 //                .setMode(MODE_SHIFTING).setBackgroundStyle(BACKGROUND_STYLE_RIPPLE);
         bar
-                .setActiveColor(R.color.colorPrimary)//选中颜色 图标和文字
-                .setInActiveColor("#8e8e8e")//默认未选择颜色
-                .setBarBackgroundColor("#ECECEC");//默认背景色
+                .setActiveColor(R.color.white)//选中颜色 图标和文字
+                .setInActiveColor(R.color.colorPrimary)//默认未选择颜色
+                .setBarBackgroundColor(R.color.g);//默认背景色
         bar
                 .addItem(new BottomNavigationItem(R.mipmap.icon_home, "首页"))
                 .addItem(new BottomNavigationItem(R.mipmap.icon_classify, "分类"))

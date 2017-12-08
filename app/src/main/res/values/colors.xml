@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#00bf99</color>
-    <color name="colorPrimaryDark">#00bf99</color>
+    <color name="colorPrimary">#1dd5af</color>
+    <color name="colorPrimaryDark">#1dd5af</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="g">#cccccc</color>
+    <color name="g">#e7efed</color>
+    <color name="window_background">#fff</color>
+    <color name="white">#fff</color>
+    <color name="donwloadsolid">#e7efed</color>
+    <color name="donwloadstroke">#1dd5af</color>
+
 </resources>

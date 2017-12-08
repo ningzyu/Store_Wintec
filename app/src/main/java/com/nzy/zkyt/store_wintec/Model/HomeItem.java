@@ -1,12 +1,14 @@
 package com.nzy.zkyt.store_wintec.Model;
 
+import java.io.Serializable;
+
 /**
  * 作者：宁震宇on 2017/12/1.
  * 邮箱：348723352@qq.com
  * 本类作用：
  */
 
-public class HomeItem {
+public class HomeItem implements Serializable {
     private String showImg;//展示图片
     private String detailsImg;//详情置顶图片
     private String name;//名称    （1，我是轮播，2，分类1,3，苏宁易购）
@@ -57,5 +59,16 @@ public class HomeItem {
 
     public void setPoint(String point) {
         Point = point;
+    }
+
+    @Override
+    public String toString() {
+        return "HomeItem{" +
+                "showImg='" + showImg + '\'' +
+                ", detailsImg='" + detailsImg + '\'' +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", Point='" + Point + '\'' +
+                '}';
     }
 }

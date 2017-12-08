@@ -4,18 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.base.MyApp;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -27,14 +22,14 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCompatActivity {
     protected T mPresenter;
     protected FrameLayout baseView;
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
-    @BindView(R.id.barTitle)
-    TextView barTitle;
-    @BindView(R.id.barMenu_txt)
-    TextView barMenu_txt;
-    @BindView(R.id.barMenu_img)
-    ImageView barMenu_img;
+//    @BindView(R.id.toolbar)
+//    Toolbar toolbar;
+//    @BindView(R.id.barTitle)
+//    TextView barTitle;
+//    @BindView(R.id.barMenu_txt)
+//    TextView barMenu_txt;
+//    @BindView(R.id.barMenu_img)
+//    ImageView barMenu_img;
     OnClickListener onClickListenerTopLeft;
     public interface OnClickListener {
         void onClick();
@@ -76,14 +71,14 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
 //        window.setFlags(flag, flag);
         //沉浸式状态栏
 //        StatusBarUtil.setColor(this, UIUtils.getColor(R.color.colorPrimaryDark), 10);
-        if (getBarTitle()==null||getBarTitle().equals("")){
-            toolbar.setVisibility(View.GONE);
-        }else {
-            toolbar.setVisibility(View.VISIBLE);
-        }
-        barTitle.setText(getBarTitle());
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//        if (getBarTitle()==null||getBarTitle().equals("")){
+//            toolbar.setVisibility(View.GONE);
+//        }else {
+//            toolbar.setVisibility(View.VISIBLE);
+//        }
+//        barTitle.setText(getBarTitle());
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     @Override
@@ -126,33 +121,33 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
     /**
      * 是否让Toolbar有返回按钮(默认可以，一般一个应用中除了主界面，其他界面都是可以有返回按钮的)
      */
-    protected void setTopLeftButton() {
-        setTopLeftButton(R.drawable.back, () -> finish());
-    }
+//    protected void setTopLeftButton() {
+//        setTopLeftButton(R.drawable.back, () -> finish());
+//    }
+//
+//    protected void setTopLeftButton(OnClickListener onClickListener) {
+//        setTopLeftButton(R.drawable.back, onClickListener);
+//    }
 
-    protected void setTopLeftButton(OnClickListener onClickListener) {
-        setTopLeftButton(R.drawable.back, onClickListener);
-    }
-
-    protected void setTopLeftButton(int iconResId, OnClickListener onClickListener) {
-        toolbar.setNavigationIcon(iconResId);
-        this.onClickListenerTopLeft = onClickListener;
-    }
-
-    protected void setTopRightButton(String menuStr, View.OnClickListener onClickListener) {
-        barMenu_txt.setVisibility(View.VISIBLE);
-        barMenu_img.setVisibility(View.GONE);
-        barMenu_txt.setText(menuStr);
-        barMenu_txt.setOnClickListener(onClickListener);
-    }
-
-    protected void setTopRightButton(int menuResId,View.OnClickListener onClickListener) {
-//        barMenu.setBackground(getDrawable(menuResId));
-        barMenu_img.setVisibility(View.VISIBLE);
-        barMenu_txt.setVisibility(View.GONE);
-        barMenu_img.setImageResource(menuResId);
-        barMenu_img.setOnClickListener(onClickListener);
-    }
+//    protected void setTopLeftButton(int iconResId, OnClickListener onClickListener) {
+//        toolbar.setNavigationIcon(iconResId);
+//        this.onClickListenerTopLeft = onClickListener;
+//    }
+//
+//    protected void setTopRightButton(String menuStr, View.OnClickListener onClickListener) {
+//        barMenu_txt.setVisibility(View.VISIBLE);
+//        barMenu_img.setVisibility(View.GONE);
+//        barMenu_txt.setText(menuStr);
+//        barMenu_txt.setOnClickListener(onClickListener);
+//    }
+//
+//    protected void setTopRightButton(int menuResId,View.OnClickListener onClickListener) {
+////        barMenu.setBackground(getDrawable(menuResId));
+//        barMenu_img.setVisibility(View.VISIBLE);
+//        barMenu_txt.setVisibility(View.GONE);
+//        barMenu_img.setImageResource(menuResId);
+//        barMenu_img.setOnClickListener(onClickListener);
+//    }
 
     public void jumpToActivity(Intent intent) {
         startActivity(intent);

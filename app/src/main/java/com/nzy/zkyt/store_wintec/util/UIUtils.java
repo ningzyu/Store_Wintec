@@ -211,7 +211,16 @@ public class UIUtils {
     public static int sp2px(int sp) {
         return (int) (TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, getResource().getDisplayMetrics()) + 0.5f);
     }
+    //获取屏幕方向
+    public static int getScreen(){
+        GetInfo(UIUtils.getContext());
+        if (screenWidth>screenHeight){
+            return 1;
+        }else {
+            return 0;
+        }
 
+    }
 
     public static int getDisplayWidth() {
         if (screenWidth == 0) {

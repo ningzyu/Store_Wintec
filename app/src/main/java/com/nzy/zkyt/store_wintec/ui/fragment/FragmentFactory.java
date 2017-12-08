@@ -22,41 +22,65 @@ public class FragmentFactory {
         return mInstance;
     }
 
-    private HomeFragment home_fg;
-    private ClassifyFragment classify_fg;
-    private MyFragment my_fg;
+    private HomeFragment home_Fg;
+    private ClassifyFragment classify_Fg;
+    private MyFragment my_Fg;
+    private DetailsFragment details_Fg;
+    private AdviceFragment advice_Fg;
 
-    public HomeFragment getFg01() {
-        if (home_fg == null) {
+    public DetailsFragment getDetailsFg() {
+        if (details_Fg == null) {
             synchronized (FragmentFactory.class) {
-                if (home_fg == null) {
-                    home_fg = new HomeFragment();
+                if (details_Fg == null) {
+                    details_Fg = new DetailsFragment();
                 }
             }
         }
-        return home_fg;
+        return details_Fg;
+    }
+    public AdviceFragment getAdviceFg() {
+        if (advice_Fg == null) {
+            synchronized (FragmentFactory.class) {
+                if (advice_Fg == null) {
+                    advice_Fg = new AdviceFragment();
+                }
+            }
+        }
+        return advice_Fg;
+    }
+
+
+    public HomeFragment getFg01() {
+        if (home_Fg == null) {
+            synchronized (FragmentFactory.class) {
+                if (home_Fg == null) {
+                    home_Fg = new HomeFragment();
+                }
+            }
+        }
+        return home_Fg;
     }
 
     public ClassifyFragment getFg02() {
-        if (classify_fg == null) {
+        if (classify_Fg == null) {
             synchronized (FragmentFactory.class) {
-                if (classify_fg == null) {
-                    classify_fg = new ClassifyFragment();
+                if (classify_Fg == null) {
+                    classify_Fg = new ClassifyFragment();
                 }
             }
         }
-        return classify_fg;
+        return classify_Fg;
     }
 
     public MyFragment getFg03() {
-        if (my_fg == null) {
+        if (my_Fg == null) {
             synchronized (FragmentFactory.class) {
-                if (my_fg == null) {
-                    my_fg = new MyFragment();
+                if (my_Fg == null) {
+                    my_Fg = new MyFragment();
                 }
             }
         }
-        return my_fg;
+        return my_Fg;
     }
 
 }

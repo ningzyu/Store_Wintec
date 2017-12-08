@@ -1,7 +1,6 @@
 package com.nzy.zkyt.store_wintec.ui.view;
 
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.widget.LinearLayout;
 
 /**
@@ -12,6 +11,6 @@ import android.widget.LinearLayout;
 
 public interface FgHomeView {
     RecyclerView getRv();
-    Toolbar getBar();
     LinearLayout getSearch();
+    void setSearch(float Alpha);
 }

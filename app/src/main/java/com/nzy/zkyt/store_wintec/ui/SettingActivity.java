@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.nzy.zkyt.store_wintec.MainActivity;
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.util.LocaleUtils;
 
