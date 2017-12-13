@@ -10,8 +10,10 @@
 
     <color name="colorPrimary">#c8c8c8</color>
     <color name="colorPrimaryDark">#787878</color>
-    <color name="colorAccent">#65d3c5</color>
-    <color name="colorViewBg">#e3eeef</color>
+    <color name="colorAccent">#66d4c6</color>
+    <color name="colorAccentDark">#66d4c6</color>
+    <color name="colorViewBg">#e1ecef</color>
+    <color name="colorViewBgDark">#e1ecef</color>
     <color name="window_background">#fff</color>
     <color name="white">#fff</color>
     <color name="donwloadsolid">#e7efed</color>

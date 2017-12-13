@@ -23,7 +23,7 @@ public class SplashActivity extends BaseActivity {
                 jumpToActivity(MainActivity.class);
                 finish();
             }
-        }, 5000);
+        }, 2000);
     }
     @Override
     protected void setStatusBar() {
