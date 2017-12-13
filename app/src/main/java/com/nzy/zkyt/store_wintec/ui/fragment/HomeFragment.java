@@ -1,6 +1,7 @@
 package com.nzy.zkyt.store_wintec.ui.fragment;
 
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -19,9 +20,8 @@ import com.nzy.zkyt.store_wintec.util.UIUtils;
 import butterknife.BindView;
 import io.reactivex.Observable;
 import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class HomeFragment extends BaseFragment<FgHomeView, FgHomePresenter> implements FgHomeView {
@@ -85,9 +85,10 @@ public class HomeFragment extends BaseFragment<FgHomeView, FgHomePresenter> impl
         if (Alpha == 0) {//当前位置为顶部
             et_srarch.setHint("搜索");
             if (isChange) {
-                ss(emitter -> {
+                subscribe(emitter -> {
                     for (int i = 0; i < speed; i++) {
                         emitter.onNext(0-addwith);
+                        Thread.sleep(5);
                     }
                     emitter.onComplete();
                 });
@@ -97,7 +98,7 @@ public class HomeFragment extends BaseFragment<FgHomeView, FgHomePresenter> impl
         } else if ((int) Alpha == 1) {//当前位置为banner下方
             et_srarch.setHint("搜索应用的关键字或分类");
             if (!isChange) {
-                ss(emitter -> {
+                subscribe(emitter -> {
                     for (int i = 0; i < speed; i++) {
                         emitter.onNext(addwith);
                         Thread.sleep(5);
@@ -123,36 +124,63 @@ public class HomeFragment extends BaseFragment<FgHomeView, FgHomePresenter> impl
      */
 
     //当前宽度
-    public void ss(ObservableOnSubscribe<Float> bservable) {
+    public void subscribe(ObservableOnSubscribe<Float> bservable) {
         Observable.create(bservable)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Float>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                    }
-                    @Override
-                    public void onNext(Float s) {
-
-                        Log.i("widthwwww","要增加的宽度======"+s.floatValue()+"");
-                        currentWidth += s.floatValue();
-                        Log.i("widthwwww","当前宽度====="+currentWidth+"");
-                        laParams.width = (int) currentWidth;
-                        search.setLayoutParams(laParams);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+                .subscribe(consumer);
 
 
     }
+    Consumer<Float> consumer= new Consumer<Float>() {
+        @Override
+        public void accept(@NonNull Float f) throws Exception {
+            currentWidth += f.floatValue();
+            Log.i("widthwwww","当前宽度====="+currentWidth+"");
+            laParams.width = (int) currentWidth;
+            search.setLayoutParams(laParams);
+        }
+    };
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //                int duration = 0;
+//                for(int i=0;i<speed;i++) {
+//                    duration+=10;
+//                    handler.postDelayed(() -> {
+//                        currentWidth-=addwith;
+//                        Log.i("widthwwww","当前宽度====="+currentWidth+"");
+//                        laParams.width = (int) currentWidth;
+//                        search.setLayoutParams(laParams);
+//
+//                    }, duration);
+//                }
 }

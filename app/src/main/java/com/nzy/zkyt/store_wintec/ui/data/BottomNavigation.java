@@ -50,7 +50,7 @@ public class BottomNavigation {
         bar
                 .setActiveColor(R.color.white)//选中颜色 图标和文字
 //                .setInActiveColor(R.color.g)//默认未选择颜色
-                .setBarBackgroundColor(R.color.colorPrimary);//默认背景色
+                .setBarBackgroundColor(R.color.colorAccent);//默认背景色
         bar
                 .addItem(new BottomNavigationItem(R.mipmap.ad1, "首页"))
                 .addItem(new BottomNavigationItem(R.mipmap.ad2, "分类"))

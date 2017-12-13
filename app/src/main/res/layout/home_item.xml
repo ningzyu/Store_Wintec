@@ -43,7 +43,7 @@
         <!--app:progress_btn_border_width="2dp"/>-->
     <TextView
         android:text="安装"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorAccent"
         android:paddingBottom="3dp"
         android:paddingTop="3dp"
         android:paddingLeft="8dp"
