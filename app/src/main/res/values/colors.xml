@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1dd5af</color>
-    <color name="colorPrimaryDark">#1dd5af</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="g">#e7efed</color>
+
+
+
+    <!--<color name="colorPrimary">#ffffff</color>-->
+    <!--<color name="colorPrimaryDark">#cccccc</color>-->
+    <!--<color name="colorAccent">#FF4081</color>-->
+    <!--<color name="g">#cccccc</color>-->
+
+    <color name="colorPrimary">#c8c8c8</color>
+    <color name="colorPrimaryDark">#787878</color>
+    <color name="colorAccent">#65d3c5</color>
+    <color name="colorViewBg">#e3eeef</color>
     <color name="window_background">#fff</color>
     <color name="white">#fff</color>
     <color name="donwloadsolid">#e7efed</color>
-    <color name="donwloadstroke">#1dd5af</color>
 
 </resources>

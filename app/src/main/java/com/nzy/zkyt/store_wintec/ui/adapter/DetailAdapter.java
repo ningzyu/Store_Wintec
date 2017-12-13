@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.nzy.zkyt.store_wintec.Model.Banners;
-import com.nzy.zkyt.store_wintec.Model.HomeItem;
+import com.nzy.zkyt.store_wintec.model.Banners;
+import com.nzy.zkyt.store_wintec.model.HomeItem;
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.ui.data.MyBanner;
 import com.youth.banner.Banner;

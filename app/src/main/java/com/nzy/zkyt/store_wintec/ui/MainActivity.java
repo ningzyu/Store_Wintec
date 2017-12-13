@@ -3,6 +3,7 @@ package com.nzy.zkyt.store_wintec.ui;
 import android.support.v4.view.ViewPager;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
+import com.jaeger.library.StatusBarUtil;
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.ui.adapter.CommonFragmentPagerAdapter;
 import com.nzy.zkyt.store_wintec.ui.base.BaseActivity;
@@ -67,6 +68,11 @@ public class MainActivity  extends BaseActivity<MainView,MainPresenter> implemen
     @Override
     protected String getBarTitle() {
         return "";
+    }
+
+    @Override
+    protected void setStatusBar() {
+        StatusBarUtil.setTransparentForImageViewInFragment(this, null);
     }
 
     @Override

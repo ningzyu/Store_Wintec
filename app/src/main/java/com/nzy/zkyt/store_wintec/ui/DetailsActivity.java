@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.nzy.zkyt.store_wintec.Model.HomeItem;
+import com.nzy.zkyt.store_wintec.model.HomeItem;
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.ui.base.BaseActivity;
 import com.nzy.zkyt.store_wintec.ui.fragment.FragmentFactory;

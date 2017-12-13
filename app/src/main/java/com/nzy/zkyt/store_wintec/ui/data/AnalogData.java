@@ -1,7 +1,7 @@
 package com.nzy.zkyt.store_wintec.ui.data;
 
-import com.nzy.zkyt.store_wintec.Model.Banners;
-import com.nzy.zkyt.store_wintec.Model.HomeItem;
+import com.nzy.zkyt.store_wintec.model.Banners;
+import com.nzy.zkyt.store_wintec.model.HomeItem;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.nzy.zkyt.store_wintec.Model;
+package com.nzy.zkyt.store_wintec.model;
 
 import java.util.List;
 

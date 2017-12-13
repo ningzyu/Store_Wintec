@@ -29,7 +29,7 @@
             <!--layout_collapseMode(折叠模式pin||parallax)-->
             <!--app:layout_collapseParallaxMultiplier（视差因子值）-->
             <RelativeLayout
-                android:background="@color/g"
+                android:background="@color/colorAccent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="-15dp"

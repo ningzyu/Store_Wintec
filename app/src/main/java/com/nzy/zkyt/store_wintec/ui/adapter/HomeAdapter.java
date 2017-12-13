@@ -3,8 +3,8 @@ package com.nzy.zkyt.store_wintec.ui.adapter;
 import android.content.Context;
 import android.os.Handler;
 
-import com.nzy.zkyt.store_wintec.Model.Banners;
-import com.nzy.zkyt.store_wintec.Model.HomeItem;
+import com.nzy.zkyt.store_wintec.model.Banners;
+import com.nzy.zkyt.store_wintec.model.HomeItem;
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.ui.adapter.nzyrecycler.NZYRecyclerAdapter;
 import com.nzy.zkyt.store_wintec.ui.adapter.nzyrecycler.NZYRecyclerHolder;

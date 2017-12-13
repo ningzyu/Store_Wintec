@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ImageView;
 
-import com.nzy.zkyt.store_wintec.Model.HomeItem;
+import com.nzy.zkyt.store_wintec.model.HomeItem;
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.base.AppConst;
 import com.nzy.zkyt.store_wintec.ui.DetailsActivity;
@@ -95,10 +95,8 @@ public class FgHomePresenter extends BasePresenter<FgHomeView> {
             super.onScrolled(recyclerView, dx, dy);
             //dx用来判断横向滑动方向，dy用来判断纵向滑动方向
             if (dy > 0) {
-                //大于0表示正在向右滚动
                 isSlidingToLast = true;
             } else {
-                //小于等于0表示停止或向左滚动
                 isSlidingToLast = false;
             }
             overallXScroll = overallXScroll + dy;// 累加y值 解决滑动一半y值为0
@@ -107,9 +105,19 @@ public class FgHomePresenter extends BasePresenter<FgHomeView> {
             } else if (overallXScroll > 0 && overallXScroll <= AppConst.BANNER_HEIGHT) { //滑动距离小于banner图的高度时，设置背景和字体颜色颜色透明度渐变
                 float scale = (float) overallXScroll / AppConst.BANNER_HEIGHT;//得到当前位置的百分比
                 getView().setSearch(scale);
+                isChange=false;
             } else {
-                getView().setSearch(1);
+                if (!isChange){
+                    getView().setSearch(1);
+                    isChange=true;
+                }
             }
         }
     }
+    private boolean isChange=false;//当前透明度是否改变
+
+
+
+
+
 }

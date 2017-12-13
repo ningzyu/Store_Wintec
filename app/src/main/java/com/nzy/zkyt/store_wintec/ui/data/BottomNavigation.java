@@ -49,12 +49,12 @@ public class BottomNavigation {
 //                .setMode(MODE_SHIFTING).setBackgroundStyle(BACKGROUND_STYLE_RIPPLE);
         bar
                 .setActiveColor(R.color.white)//选中颜色 图标和文字
-                .setInActiveColor(R.color.colorPrimary)//默认未选择颜色
-                .setBarBackgroundColor(R.color.g);//默认背景色
+//                .setInActiveColor(R.color.g)//默认未选择颜色
+                .setBarBackgroundColor(R.color.colorPrimary);//默认背景色
         bar
-                .addItem(new BottomNavigationItem(R.mipmap.icon_home, "首页"))
-                .addItem(new BottomNavigationItem(R.mipmap.icon_classify, "分类"))
-                .addItem(new BottomNavigationItem(R.mipmap.icon_my, "我的"))
+                .addItem(new BottomNavigationItem(R.mipmap.ad1, "首页"))
+                .addItem(new BottomNavigationItem(R.mipmap.ad2, "分类"))
+                .addItem(new BottomNavigationItem(R.mipmap.ad3, "管理"))
 //                .addItem(new BottomNavigationItem(R.mipmap.icon_home,"首页").setActiveColor("#8e8e8e").setInActiveColor("#ECECEC"))
                 .setFirstSelectedPosition(0)//设置默认选择的按钮
                 .initialise();//所有的设置需在调用该方法前完成

@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import com.jaeger.library.StatusBarUtil;
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.base.MyApp;
 
@@ -46,17 +46,20 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
             mPresenter.attachView((V) this);//因为之后所有的子类都要实现对应的View接口
         }
         //子类不再需要设置布局ID，也不再需要使用ButterKnife.bind()
-        setContentView(R.layout.base_toolbar);
-        baseView = (FrameLayout) findViewById(R.id.baseView);
-        //将继承 TopBarBaseActivity 的布局解析到 FrameLayout 里面
-        LayoutInflater.from(this).inflate(provideContentViewId(), baseView);
+        setContentView(provideContentViewId());
+//        baseView = (FrameLayout) findViewById(R.id.baseView);
+//        //将继承 TopBarBaseActivity 的布局解析到 FrameLayout 里面
+//        LayoutInflater.from(this).inflate(provideContentViewId(), baseView);
         ButterKnife.bind(this);
-        setupAppBarAndToolbar();
         initView();
+        setStatusBar();
         initData();
         initListener();
     }
-
+    protected void setStatusBar() {
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary));
+//        StatusBarUtil.setTransparent(this);
+    }
     /**
      * 设置AppBar和Toolbar
      */
