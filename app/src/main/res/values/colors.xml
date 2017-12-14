@@ -8,6 +8,7 @@
     <!--<color name="colorAccent">#FF4081</color>-->
     <!--<color name="g">#cccccc</color>-->
 
+    <color name="gray">#f0f0f0</color>
     <color name="colorPrimary">#c8c8c8</color>
     <color name="colorPrimaryDark">#787878</color>
     <color name="colorAccent">#45c3b5</color>
