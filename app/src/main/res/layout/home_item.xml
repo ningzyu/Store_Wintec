@@ -2,7 +2,7 @@
 <com.zhy.android.percent.support.PercentLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:layout_heightPercent="14%h"
+    app:layout_heightPercent="12%h"
     app:layout_widthPercent="100%"
     android:layout_gravity="center"
     android:layout_width="wrap_content"
@@ -11,8 +11,8 @@
     <ImageView
         android:layout_gravity="center_vertical"
         android:id="@+id/iv_home_item"
-        app:layout_heightPercent="10%h"
-        app:layout_widthPercent="10%h"
+        app:layout_heightPercent="8%h"
+        app:layout_widthPercent="8%h"
         app:layout_marginPercent="2%h"
         android:transitionName="@string/transition_book_img"
         android:layout_width="wrap_content"
@@ -21,8 +21,9 @@
         android:layout_weight="1"
         android:layout_gravity="center_vertical"
         android:orientation="vertical"
+        android:gravity="center_vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <TextView
             android:id="@+id/tv_home_item"
             android:text="APP名称"
@@ -44,14 +45,13 @@
     <TextView
         android:text="安装"
         android:textColor="@color/colorAccent"
-        android:paddingBottom="3dp"
-        android:paddingTop="3dp"
-        android:paddingLeft="8dp"
-        android:paddingRight="8dp"
-        android:layout_marginRight="10dp"
         android:gravity="center"
         android:layout_gravity="center_vertical"
         android:background="@drawable/bg_download_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        app:layout_heightPercent="4%h"
+        app:layout_widthPercent="10%h"
+        app:layout_marginPercent="2%h"
+        app:layout_textSizePercent="2%h"
+        android:layout_width="0dp"
+        android:layout_height="0dp" />
 </com.zhy.android.percent.support.PercentLinearLayout>

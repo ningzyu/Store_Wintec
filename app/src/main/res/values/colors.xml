@@ -10,12 +10,13 @@
 
     <color name="colorPrimary">#c8c8c8</color>
     <color name="colorPrimaryDark">#787878</color>
-    <color name="colorAccent">#66d4c6</color>
-    <color name="colorAccentDark">#66d4c6</color>
-    <color name="colorViewBg">#e1ecef</color>
-    <color name="colorViewBgDark">#e1ecef</color>
-    <color name="window_background">#fff</color>
-    <color name="white">#fff</color>
+    <color name="colorAccent">#45c3b5</color>
+    <color name="colorAccentDark">#45c3b5</color>
+    <color name="colorViewBg">#f1ffff</color>
+    <color name="colorViewBgDark">#d1e2dc</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
     <color name="donwloadsolid">#e7efed</color>
 
 </resources>

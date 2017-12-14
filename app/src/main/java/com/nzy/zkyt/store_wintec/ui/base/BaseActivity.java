@@ -1,6 +1,7 @@
 package com.nzy.zkyt.store_wintec.ui.base;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -39,6 +40,9 @@ public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCom
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MyApp.activities.add(this);
+        setRequestedOrientation(ActivityInfo
+//                .SCREEN_ORIENTATION_LANDSCAPE);// 横屏
+        .SCREEN_ORIENTATION_PORTRAIT);//竖屏
         init();
         //判断是否使用MVP模式
         mPresenter = createPresenter();
