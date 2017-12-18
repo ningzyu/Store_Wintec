@@ -1,4 +1,4 @@
-package com.nzy.zkyt.store_wintec.ui;
+package com.nzy.zkyt.store_wintec.ui.activity;
 
 import android.widget.RelativeLayout;
 
@@ -12,6 +12,9 @@ import java.util.TimerTask;
 
 import butterknife.BindView;
 
+/**
+ * 欢迎页
+ */
 public class SplashActivity extends BaseActivity {
     @BindView(R.id.activity_splash)
     RelativeLayout layout;
@@ -20,8 +23,7 @@ public class SplashActivity extends BaseActivity {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                jumpToActivity(MainActivity.class);
-
+                jumpToActivityAndClearTask(MainActivity.class);
             }
         }, 2000);
     }

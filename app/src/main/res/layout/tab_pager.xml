@@ -8,10 +8,18 @@
         android:id="@+id/details_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabSelectedTextColor="@color/colorAccent"
         app:tabGravity="center"
         app:tabMode="fixed" />
+    <View
+        android:background="@color/line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

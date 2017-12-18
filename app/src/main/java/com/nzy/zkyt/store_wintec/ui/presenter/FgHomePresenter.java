@@ -1,17 +1,13 @@
 package com.nzy.zkyt.store_wintec.ui.presenter;
 
 import android.content.Intent;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.ImageView;
 
-import com.nzy.zkyt.store_wintec.model.HomeItem;
-import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.base.AppConst;
-import com.nzy.zkyt.store_wintec.ui.DetailsActivity;
+import com.nzy.zkyt.store_wintec.model.HomeItem;
+import com.nzy.zkyt.store_wintec.ui.activity.DetailsActivity;
 import com.nzy.zkyt.store_wintec.ui.adapter.HomeAdapter;
 import com.nzy.zkyt.store_wintec.ui.base.BaseActivity;
 import com.nzy.zkyt.store_wintec.ui.base.BasePresenter;
@@ -23,7 +19,6 @@ import java.util.List;
 
 import static com.nzy.zkyt.store_wintec.ui.adapter.HomeAdapter.APK_LAYOUT;
 import static com.nzy.zkyt.store_wintec.ui.adapter.HomeAdapter.TYPES_LAYOUT;
-import static com.nzy.zkyt.store_wintec.util.UIUtils.getString;
 
 /**
  * 作者：宁震宇on 2017/11/30.
@@ -60,10 +55,11 @@ public class FgHomePresenter extends BasePresenter<FgHomeView> {
                     Log.i("homehome",homeItem.toString());
                     Intent intent = new Intent(mContext, DetailsActivity.class);
                     intent.putExtra("homeItem", homeItem);
-                    ActivityOptionsCompat options =
-                            ActivityOptionsCompat.makeSceneTransitionAnimation(mContext,
-                                    (ImageView)helper.getView(R.id.iv_home_item), getString(R.string.transition_book_img));
-                    ActivityCompat.startActivity(mContext, intent, options.toBundle());
+                    mContext.jumpToActivity(intent);
+//                    ActivityOptionsCompat options =
+//                            ActivityOptionsCompat.makeSceneTransitionAnimation(mContext,
+//                                    (ImageView)helper.getView(R.id.iv_home_item), getString(R.string.transition_book_img));
+//                    ActivityCompat.startActivity(mContext, intent, options.toBundle());
                     break;
             }
         });

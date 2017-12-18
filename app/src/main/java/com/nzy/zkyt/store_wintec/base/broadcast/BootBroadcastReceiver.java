@@ -4,7 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.nzy.zkyt.store_wintec.ui.SplashActivity;
+import com.nzy.zkyt.store_wintec.ui.activity.SplashActivity;
 
 /**
  * 作者：宁震宇on 2017/11/28.

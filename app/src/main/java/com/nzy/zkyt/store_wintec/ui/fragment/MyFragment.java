@@ -1,15 +1,12 @@
 package com.nzy.zkyt.store_wintec.ui.fragment;
 
-import android.content.DialogInterface;
-import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.nzy.zkyt.store_wintec.R;
-import com.nzy.zkyt.store_wintec.ui.MainActivity;
+import com.nzy.zkyt.store_wintec.ui.activity.MainActivity;
 import com.nzy.zkyt.store_wintec.ui.base.BaseFragment;
 import com.nzy.zkyt.store_wintec.ui.presenter.FgMyPresenter;
 import com.nzy.zkyt.store_wintec.ui.view.FgMyView;

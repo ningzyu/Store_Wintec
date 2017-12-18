@@ -4,7 +4,7 @@
     android:id="@+id/activity_splash"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_girl"
-    tools:context="com.nzy.zkyt.store_wintec.ui.SplashActivity">
+    android:background="@drawable/bg_splash"
+    tools:context="com.nzy.zkyt.store_wintec.ui.activity.SplashActivity">
 
 </RelativeLayout>

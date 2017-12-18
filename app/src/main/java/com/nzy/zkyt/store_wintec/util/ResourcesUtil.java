@@ -1,6 +1,9 @@
 package com.nzy.zkyt.store_wintec.util;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.support.graphics.drawable.VectorDrawableCompat;
 import android.util.Log;
 import android.view.View;
@@ -10,11 +13,10 @@ import java.util.Random;
 /**
  * 作者：宁震宇on 2017/12/11.
  * 邮箱：348723352@qq.com
- * 本类作用：
+ * 本类作用：关于drawable文件和Color的一些操作
  */
 
 public class ResourcesUtil {
-
     private static ResourcesUtil resUtil;
     private ResourcesUtil() {}
     public static ResourcesUtil getInstance() {
@@ -42,8 +44,6 @@ public class ResourcesUtil {
     Random random = new Random();
     int color = 0xff000000 | random.nextInt(0xffffff);
     //白变黑，透明度不变为1的时候为黑色
-
-
     public int getColor(float f) {
         return getColor(f,255);
     }
@@ -52,6 +52,9 @@ public class ResourcesUtil {
         int i= (int) (f*250);
         int value=250-i;
         Log.i("colorcolor","颜色值"+i+"----"+f);
+        return Color.argb(alpha, value, value, value);
+    }
+    public int getColor(int alpha,int value){
         return Color.argb(alpha, value, value, value);
     }
     public int getColorAlpha(float f){
@@ -67,7 +70,6 @@ public class ResourcesUtil {
         view.getBackground().setAlpha(125);
     }
 
-
 //    colors = new int[]{
 //        Color.BLACK,
 //                getResources().getColor(android.R.color.holo_red_light),
@@ -79,4 +81,15 @@ public class ResourcesUtil {
 //                Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
 //    };
 
+    public Bitmap getBitmap(int drawable){
+        return BitmapFactory.decodeResource(UIUtils.getContext().getResources(),drawable);
+    }
+
+
+    /**
+     * 颜色相关
+     */
+    GradientDrawable grad = new GradientDrawable(//渐变色
+            GradientDrawable.Orientation.TOP_BOTTOM,
+            new int[]{Color.BLACK, Color.WHITE,Color.BLACK});
 }
