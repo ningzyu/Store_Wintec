@@ -38,8 +38,8 @@ public class MyFragment  extends BaseFragment<FgMyView, FgMyPresenter> implement
 
     @Override
     public void initListener() {
-//        btn_manage_search.setOnClickListener(this);
-//        btn_update_manage.setOnClickListener(this);
+        btn_manage_search.setOnClickListener(this);
+        btn_update_manage.setOnClickListener(this);
     }
 
     /**
@@ -62,7 +62,6 @@ public class MyFragment  extends BaseFragment<FgMyView, FgMyPresenter> implement
                 break;
 
             case R.id.btn_update_manage:
-                Log.i("ab",">>>>>>>>>>>>");
                 break;
 
             case R.id.btn_setting_manage:
