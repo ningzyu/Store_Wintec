@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
-
-    <!--<color name="colorPrimary">#ffffff</color>-->
-    <!--<color name="colorPrimaryDark">#cccccc</color>-->
-    <!--<color name="colorAccent">#FF4081</color>-->
-    <!--<color name="g">#cccccc</color>-->
-
     <color name="gray">#f0f0f0</color>
     <color name="colorPrimary">#c8c8c8</color>
     <color name="colorPrimaryDark">#787878</color>
@@ -17,7 +9,7 @@
     <color name="colorViewBgDark">#d1e2dc</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
-
+    <color name="line">#d4d4d4</color>
     <color name="donwloadsolid">#e7efed</color>
 
 </resources>

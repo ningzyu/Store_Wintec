@@ -3,8 +3,8 @@ package com.nzy.zkyt.store_wintec.ui.data;
 import android.util.Log;
 import android.view.ViewGroup;
 
-import com.nzy.zkyt.store_wintec.util.GlideImageLoader;
 import com.nzy.zkyt.store_wintec.base.AppConst;
+import com.nzy.zkyt.store_wintec.util.GlideUtil;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerListener;
@@ -40,7 +40,7 @@ public class MyBanner {
         mBanner.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, AppConst.BANNER_HEIGHT));
         mBanner.setImages(imgs)
                 .setBannerStyle(BannerConfig.NOT_INDICATOR)//内置样式
-                .setImageLoader(new GlideImageLoader())
+                .setImageLoader(GlideUtil.GlideImageLoader.imageLoader)
                 .setOnBannerListener(onBannerListener)
                 .setDelayTime(3000)
                 .start();

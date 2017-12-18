@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 
 import com.nzy.zkyt.store_wintec.R;
-import com.nzy.zkyt.store_wintec.ui.MainActivity;
+import com.nzy.zkyt.store_wintec.ui.activity.MainActivity;
 import com.nzy.zkyt.store_wintec.ui.base.BaseFragment;
 import com.nzy.zkyt.store_wintec.ui.presenter.FgHomePresenter;
 import com.nzy.zkyt.store_wintec.ui.view.FgHomeView;
@@ -129,8 +129,6 @@ public class HomeFragment extends BaseFragment<FgHomeView, FgHomePresenter> impl
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(consumer);
-
-
     }
     Consumer<Float> consumer= new Consumer<Float>() {
         @Override

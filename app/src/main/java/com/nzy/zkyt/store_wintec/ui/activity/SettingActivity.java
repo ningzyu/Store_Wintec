@@ -1,4 +1,4 @@
-package com.nzy.zkyt.store_wintec.ui;
+package com.nzy.zkyt.store_wintec.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
