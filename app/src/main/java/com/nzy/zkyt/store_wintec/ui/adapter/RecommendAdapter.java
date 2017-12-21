@@ -1,6 +1,8 @@
 package com.nzy.zkyt.store_wintec.ui.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.nzy.zkyt.store_wintec.R;
+import com.nzy.zkyt.store_wintec.ui.activity.QueryActivity;
+import com.nzy.zkyt.store_wintec.util.UIUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +22,7 @@ import java.util.List;
  * 搜索界面，推荐列表适配器
  */
 
-public class RecommendAdapter extends BaseAdapter {
+public class RecommendAdapter extends BaseAdapter implements View.OnClickListener {
 
     Context context;
     List<List<String>> list;
@@ -45,27 +49,41 @@ public class RecommendAdapter extends BaseAdapter {
         return position;
     }
 
-    class ViewHolder{
-        LinearLayout linearLayout;
-        List<TextView> textViewList;
+    @Override
+    public boolean areAllItemsEnabled() {
+        return false;
     }
 
     @Override
+    public boolean isEnabled(int position) {
+        return false;
+    }
+
+    class ViewHolder{
+        LinearLayout linearLayout;
+
+    }
+    List<TextView> textViewList;
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
+        textViewList = new ArrayList<TextView>();
         if (convertView == null) {
             holder = new ViewHolder();
             convertView = layoutInflater.inflate(R.layout.layout_search_label, null);
             holder.linearLayout = (LinearLayout) convertView.findViewById(R.id.linearlayout_label);
-            holder.textViewList = new ArrayList<TextView>();
-            ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            params.setMargins(UIUtils.getDisplayWidth()/30, 0, UIUtils.getDisplayWidth()/30, 0);
+
             //动态添加标签
             for(String label: list.get(position)){
                 TextView textView = new TextView(context);
                 textView.setLayoutParams(params);
-        //        textView.setText(label);
-        //        holder.linearLayout.addView(textView);
-                holder.textViewList.add(textView);
+                textView.setBackground(context.getResources().getDrawable(R.drawable.bg_label));
+                textView.setSingleLine(true);
+
+                textViewList.add(textView);
             }
             convertView.setTag(holder);
 
@@ -73,12 +91,27 @@ public class RecommendAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        for(int i=0;i<holder.textViewList.size();i++){
-            TextView textView = holder.textViewList.get(i);
+        for(int i=0;i<textViewList.size();i++){
+            TextView textView = textViewList.get(i);
             textView.setText(list.get(position).get(i));
+            textView.setTag(list.get(position).get(i));
+            textView.setOnClickListener(this);
+
             holder.linearLayout.addView(textView);
         }
 
         return convertView;
+    }
+
+    Handler handler = new Handler();
+
+    @Override
+    public void onClick(View v) {
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                ((QueryActivity)context).getEditTextSearch().setText((String) v.getTag());
+            }
+        });
     }
 }

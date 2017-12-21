@@ -30,14 +30,17 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity android:name=".ui.activity.SettingActivity" />
+        <activity android:name=".ui.activity.QueryActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <!--android:launchMode="singleTask" android:screenOrientation="portrait">-->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.MainActivity" />
-        <activity android:name=".ui.activity.SettingActivity" />
         <activity android:name=".ui.activity.DetailsActivity"></activity>
     </application>
 

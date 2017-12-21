@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <View
+        android:visibility="gone"
         android:id="@+id/fake_status_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/statusbar_view_height"
@@ -15,45 +16,44 @@
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="?attr/actionBarSize"
+        >
 
-        <ImageView
-            android:id="@+id/btn_return"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@mipmap/btn_return"/>
-
-        <com.zhy.android.percent.support.PercentLinearLayout
-            android:id="@+id/my_search"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="10"
             android:orientation="horizontal"
-            app:layout_heightPercent="60%h"
-            app:layout_marginRightPercent="5%"
-            android:background="@drawable/bg_edit"
-            android:gravity="center"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_width="0dp"
-            android:layout_height="0dp">
+            android:gravity="center_vertical">
+
             <ImageView
-                android:src="@mipmap/search"
-                app:layout_widthPercent="70%h"
-                app:layout_heightPercent="70%h"
-                app:layout_marginRightPercent="30%h"
-                android:layout_width="0dp"
-                android:layout_height="0dp" />
-            <EditText
-                android:id="@+id/search_et_input"
-                android:focusable="true"
-                android:gravity="center"
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_return"
+                android:layout_width="0dip"
+                android:layout_weight="0.8"
                 android:layout_height="wrap_content"
-                android:background="@null"
-                android:textSize="14sp"
-                android:textColorHint="#000000"
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:hint="搜索"/>
-        </com.zhy.android.percent.support.PercentLinearLayout>
+                android:src="@mipmap/btn_return"/>
+
+            <EditText
+                android:id="@+id/edit_search"
+                android:paddingLeft="12dp"
+                android:hint="请输入关键字"
+                android:textSize="16sp"
+                android:textColorHint="#d1d1d1"
+                android:layout_width="0dip"
+                android:layout_weight="8"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_edit"
+                />
+
+            <ImageView
+                android:id="@+id/image_search"
+                android:layout_width="0dip"
+                android:layout_weight="0.8"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/search"/>
+
+        </LinearLayout>
+
         
     </android.support.v7.widget.Toolbar>
 
@@ -66,6 +66,8 @@
 
     <!--推荐-->
     <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/linearlayout_recommend"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal"
@@ -91,7 +93,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right">
+            android:gravity="right|center_vertical">
 
             <ImageView
                 android:id="@+id/image_refresh"
@@ -103,8 +105,9 @@
             <TextView
                 android:id="@+id/text_refresh"
                 android:layout_width="wrap_content"
-                android:layout_height="15dp"
-                android:text="换一批"/>
+                android:layout_height="wrap_content"
+                android:text="换一批"
+                android:textSize="16sp"/>
 
         </LinearLayout>
 
@@ -112,9 +115,12 @@
 
     <!--推荐列表-->
     <ListView
+        android:visibility="gone"
         android:id="@+id/listview_recommend"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        >
     </ListView>
 
     <!--分割线-->
@@ -122,8 +128,33 @@
 
     <!--历史记录-->
     <ListView
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
         android:id="@+id/listview_history"
+        android:divider="@null"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </ListView>
+
+    <FrameLayout
+        android:id="@+id/framelayout_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+        <!--搜索结果-->
+        <ListView
+
+            android:id="@+id/listview_result"
+            android:divider="@null"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+        </ListView>
+
+        <include layout="@layout/layout_circle_loading"></include>
+
+    </FrameLayout>
 </LinearLayout>

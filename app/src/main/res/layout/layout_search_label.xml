@@ -4,23 +4,8 @@
     android:layout_width="wrap_content"
     android:layout_height="30dp"
     android:padding="5dp"
-    android:gravity="center"
+    android:gravity="center_vertical"
     android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="余光中"
-        android:src="@drawable/bg_label"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="余光中"
-        android:src="@drawable/bg_label"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
 
 </LinearLayout>
