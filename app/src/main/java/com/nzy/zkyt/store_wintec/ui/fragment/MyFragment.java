@@ -1,5 +1,6 @@
 package com.nzy.zkyt.store_wintec.ui.fragment;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -7,6 +8,7 @@ import android.widget.LinearLayout;
 
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.ui.activity.MainActivity;
+import com.nzy.zkyt.store_wintec.ui.activity.QueryActivity;
 import com.nzy.zkyt.store_wintec.ui.base.BaseFragment;
 import com.nzy.zkyt.store_wintec.ui.presenter.FgMyPresenter;
 import com.nzy.zkyt.store_wintec.ui.view.FgMyView;
@@ -47,6 +49,8 @@ public class MyFragment  extends BaseFragment<FgMyView, FgMyPresenter> implement
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.image_manage_search:
+                Intent intent = new Intent(getContext(), QueryActivity.class);
+                startActivity(intent);
                 break;
 
             case R.id.btn_apk_manage:

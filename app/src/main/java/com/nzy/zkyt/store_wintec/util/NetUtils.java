@@ -7,6 +7,13 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import retrofit2.http.GET;
+
 /**
  * @创建者 CSDN_LQR
  * @描述 跟网络相关的工具类
@@ -71,6 +78,51 @@ public class NetUtils {
         intent.setComponent(cm);
         intent.setAction("android.intent.action.VIEW");
         activity.startActivityForResult(intent, 0);
+    }
+
+    /**
+     * get方式网络请求
+     * @param path
+     * @return
+     * @throws Exception
+     */
+    public static String requestByGet(String path) throws Exception{
+        String result = "";
+        URL url = new URL(path);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setConnectTimeout(5 * 1000);
+        conn.setRequestMethod("GET");
+        conn.setUseCaches(true);
+        conn.connect();
+        if(conn.getResponseCode() == 200){
+            result= stream2String(conn.getInputStream());
+        } else{
+            throw new Exception("网络请求失败,URL:" + path);
+        }
+        return result;
+    }
+
+    /**
+     * 将输入流转换成字符串
+     *
+     * @param is 从网络获取的输入流
+     * @return
+     */
+    public static String stream2String(InputStream is) {
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            byte[] buffer = new byte[1024];
+            int len = 0;
+            while ((len = is.read(buffer)) != -1) {
+                baos.write(buffer, 0, len);
+            }
+            baos.close();
+            is.close();
+            byte[] byteArray = baos.toByteArray();
+            return new String(byteArray);
+        } catch (Exception e) {
+            return "";
+        }
     }
 
 }  
