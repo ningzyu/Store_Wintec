@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:orientation="horizontal">
+
+    <!--设置消息推送-->
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/setting_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="通知设置"
+            android:textColor="#000"
+            android:textSize="16sp"></TextView>
+
+        <TextView
+            android:id="@+id/setting_brief"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:singleLine="false"
+            android:text="推送消息设置" />
+
+    </LinearLayout>
+
+    <Switch
+        android:id="@+id/setting_switch"
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight="2" />
+
+</LinearLayout>
