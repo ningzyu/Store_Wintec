@@ -75,7 +75,11 @@ public class SearchResultAdapter extends BaseAdapter {
         viewHolder.textViewSize.setText(data.get(position).appSize);
         viewHolder.textViewDescription.setText(data.get(position).description);
         // 加载网络图片
-        Picasso.with(context).load(data.get(position).imageUrl).into(viewHolder.imageView);
+     //   Picasso.with(context).setIndicatorsEnabled(true);
+        Picasso.with(context)
+                .load(data.get(position).imageUrl)
+                .into(viewHolder.imageView)
+               ;
 
         return convertView;
     }

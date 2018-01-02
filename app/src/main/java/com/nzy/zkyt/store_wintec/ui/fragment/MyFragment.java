@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.ui.activity.MainActivity;
 import com.nzy.zkyt.store_wintec.ui.activity.QueryActivity;
+import com.nzy.zkyt.store_wintec.ui.activity.SettingActivity;
 import com.nzy.zkyt.store_wintec.ui.base.BaseFragment;
 import com.nzy.zkyt.store_wintec.ui.presenter.FgMyPresenter;
 import com.nzy.zkyt.store_wintec.ui.view.FgMyView;
@@ -39,6 +40,7 @@ public class MyFragment  extends BaseFragment<FgMyView, FgMyPresenter> implement
     public void initListener() {
         btn_manage_search.setOnClickListener(this);
         btn_update_manage.setOnClickListener(this);
+        btn_setting_manage.setOnClickListener(this);
     }
 
     /**
@@ -66,6 +68,8 @@ public class MyFragment  extends BaseFragment<FgMyView, FgMyPresenter> implement
                 break;
 
             case R.id.btn_setting_manage:
+                Intent intentSetting = new Intent(getContext(), SettingActivity.class);
+                startActivity(intentSetting);
                 break;
         }
     }

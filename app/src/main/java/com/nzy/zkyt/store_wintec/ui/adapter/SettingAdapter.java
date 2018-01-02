@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.model.SettingItem;
+import com.nzy.zkyt.store_wintec.util.SPUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +63,7 @@ public class SettingAdapter extends BaseAdapter implements CompoundButton.OnChec
             viewHolder.textViewTitle = (TextView) convertView.findViewById(R.id.setting_title);
             viewHolder.textViewBrief = (TextView) convertView.findViewById(R.id.setting_brief);
             viewHolder.settingSwitch = (Switch) convertView.findViewById(R.id.setting_switch);
+            viewHolder.settingSwitch.setTag(position);
 
             convertView.setTag(viewHolder);
         }else{
@@ -79,6 +81,23 @@ public class SettingAdapter extends BaseAdapter implements CompoundButton.OnChec
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
+        switch((int)buttonView.getTag()){
+            //消息提醒
+            case 0:
+                SPUtils.getInstance(context).putBoolean("MessageNotice", isChecked);
+                break;
+            //省流量模式
+            case 1:
+                SPUtils.getInstance(context).putBoolean("ProvincialFlow", isChecked);
+                break;
+            //自动删除安装包
+            case 2:
+                SPUtils.getInstance(context).putBoolean("AutoDelete", isChecked);
+                break;
+            //WLAN闲时自动更新
+            case 3:
+                SPUtils.getInstance(context).putBoolean("AutoUpdate", isChecked);
+                break;
+        }
     }
 }

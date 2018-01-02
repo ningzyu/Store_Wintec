@@ -21,6 +21,13 @@
             android:weightSum="10"
             android:layout_weight="0.94">
 
+            <ImageView
+                android:id="@+id/image_return"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:src="@mipmap/btn_return"/>
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -41,12 +48,65 @@
         android:layout_height="3dp">
     </LinearLayout>
 
+
+
+    <!--基础设置-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:paddingLeft="15dp"
+        android:text="基础设置"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"/>
+
     <ListView
         android:id="@+id/listview_setting"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:divider="@null">
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
 
     </ListView>
+
+
+    <!--清除缓存-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="15dp"
+        android:text="其他"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"/>
+
+    <LinearLayout
+        android:id="@+id/linearlayout_clear_cache"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:text="清空缓存"
+            android:textColor="#000"
+            android:textSize="16sp"></TextView>
+
+        <TextView
+            android:id="@+id/clear_cache_brief"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="15dp"
+            android:singleLine="false"
+            android:text="包括图片、安装包缓存（共14.02M）" />
+
+    </LinearLayout>
+
 
 </LinearLayout>

@@ -24,6 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.nzy.zkyt.store_wintec.R;
 import com.nzy.zkyt.store_wintec.db.DatabaseHelper;
 import com.nzy.zkyt.store_wintec.db.DatabaseManager;
@@ -34,8 +35,15 @@ import com.nzy.zkyt.store_wintec.ui.adapter.RecommendAdapter;
 import com.nzy.zkyt.store_wintec.ui.adapter.SearchResultAdapter;
 import com.nzy.zkyt.store_wintec.util.UIUtils;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class QueryActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
@@ -65,6 +73,7 @@ public class QueryActivity extends AppCompatActivity implements View.OnClickList
     private List<SearchHistoryItem> historyList;    //历史记录列表
     private List<SearchResultItem> resultList;      //搜索结果列表
     private boolean isShowResult = false;          //是否显示搜索结果
+    private Handler handler = new Handler();
 
     private DatabaseHelper dbHelper;
 
@@ -241,11 +250,9 @@ public class QueryActivity extends AppCompatActivity implements View.OnClickList
     public void refreshLabel(){
         imageRefresh.startAnimation(animRefresh);
         simulatedLabelData();
-        recommendList.clear();
-        recommendAdapter.notifyDataSetChanged();
-        listViewRecommend.setAdapter(recommendAdapter);
-        initRecomendLabel();
-        listViewRecommend.setAdapter(recommendAdapter);
+
+  //      initRecomendLabel();
+
     }
 
     /**
@@ -255,12 +262,53 @@ public class QueryActivity extends AppCompatActivity implements View.OnClickList
         if(labelList!=null)
             labelList.clear();
         labelList = new ArrayList<String>();
-        String[] data = {"火狐浏览器","中科英泰","android studio","可乐","数据结构与算法分析","西红柿鸡蛋"};
-        int count = (int)(6+Math.random()*(10-6+1));
-        for(int i=0;i<count;i++){
-            int num = (int)(0+Math.random()*(5-0+1));
-            labelList.add(data[num]);
-        }
+//        String[] data = {"火狐浏览器","中科英泰","android studio","可乐","数据结构与算法分析","西红柿鸡蛋"};
+//        int count = (int)(6+Math.random()*(10-6+1));
+//        for(int i=0;i<count;i++){
+//            int num = (int)(0+Math.random()*(5-0+1));
+//            labelList.add(data[num]);
+//        }
+        new Thread(new Runnable(){
+            @Override
+            public void run() {
+                try {
+                    OkHttpClient okHttpClient = new OkHttpClient();
+                    Request request = new Request.Builder().url("http://192.168.12.69:8080/Wintec/AppService?methodCode=2").build();
+                    Response response = null;
+                    response = okHttpClient.newCall(request).execute();
+                    if(response.isSuccessful()){
+                        String result = response.body().string();
+                        JSONObject object = JSONObject.fromObject(result);
+                        if(object.getString("code").equals("1")){
+                            JSONArray array = JSONArray.fromObject(object.getString("values"));
+                            labelList = new ArrayList<String>();
+                            for(int i=0;i<array.size();i++){
+                                labelList.add(array.getJSONObject(i).getString("name"));
+                            }
+                            handler.post(new Runnable(){
+                                @Override
+                                public void run() {
+                                    if(recommendList!=null){
+                                        recommendList.clear();
+                                        recommendAdapter.notifyDataSetChanged();
+                                        listViewRecommend.setAdapter(recommendAdapter);
+                                        initRecomendLabel();
+                                        listViewRecommend.setAdapter(recommendAdapter);
+                                    }else {
+                                        initRecomendLabel();
+                                    }
+
+                                }
+                            });
+                        }
+                    } else{
+
+                    }
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }).start();
 
     }
 
@@ -349,7 +397,7 @@ public class QueryActivity extends AppCompatActivity implements View.OnClickList
         getQueryResult();
     }
 
-    Handler handler = new Handler();
+
 
     /**
      * 获取查询结果
