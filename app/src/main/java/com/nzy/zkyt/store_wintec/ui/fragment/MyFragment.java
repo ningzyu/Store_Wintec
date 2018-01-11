@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.nzy.zkyt.store_wintec.R;
+import com.nzy.zkyt.store_wintec.ui.activity.LocalInstalledApkActivity;
 import com.nzy.zkyt.store_wintec.ui.activity.MainActivity;
 import com.nzy.zkyt.store_wintec.ui.activity.QueryActivity;
 import com.nzy.zkyt.store_wintec.ui.activity.SettingActivity;
@@ -41,6 +42,8 @@ public class MyFragment  extends BaseFragment<FgMyView, FgMyPresenter> implement
         btn_manage_search.setOnClickListener(this);
         btn_update_manage.setOnClickListener(this);
         btn_setting_manage.setOnClickListener(this);
+        btn_apk_manage.setOnClickListener(this);
+        btn_install_manage.setOnClickListener(this);
     }
 
     /**
@@ -56,12 +59,15 @@ public class MyFragment  extends BaseFragment<FgMyView, FgMyPresenter> implement
                 break;
 
             case R.id.btn_apk_manage:
+
                 break;
 
             case R.id.btn_clear_manage:
                 break;
 
             case R.id.btn_install_manage:
+                Intent intent1 = new Intent(getContext(), LocalInstalledApkActivity.class);
+                startActivity(intent1);
                 break;
 
             case R.id.btn_update_manage:
