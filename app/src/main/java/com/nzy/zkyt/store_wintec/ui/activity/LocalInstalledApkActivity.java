@@ -1,9 +1,13 @@
 package com.nzy.zkyt.store_wintec.ui.activity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.nzy.zkyt.store_wintec.R;
@@ -55,6 +59,28 @@ public class LocalInstalledApkActivity extends AppCompatActivity {
     }
 
     public void initListener(){
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                String packageName = data.get(position).getApkPackageName();
+                //删除指定包名的应用
+                Intent uninstall_intent = new Intent();
+                uninstall_intent.setAction(Intent.ACTION_DELETE);
+                uninstall_intent.setData(Uri.parse("package:" + packageName));
+          //      startActivity(uninstall_intent);
+                startActivityForResult(uninstall_intent, 1);
+                return true;
+            }
+        });
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case 1:
+
+                break;
+        }
     }
 }

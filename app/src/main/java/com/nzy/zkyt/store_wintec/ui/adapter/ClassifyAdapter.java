@@ -70,7 +70,7 @@ public class ClassifyAdapter extends BaseAdapter {
         }
 
         viewHolder.textView.setText(list.get(position).ClassifyName);
-        Picasso.with(context).load(list.get(position).ImageUrl).into(viewHolder.imageViewHead);
+        Picasso.with(context).load(list.get(position).ImageUrl).error(R.mipmap.icon_load_error).into(viewHolder.imageViewHead);
 
         return convertView;
     }
